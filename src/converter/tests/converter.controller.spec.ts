@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConverterController } from './converter.controller';
-import { ConvertService } from './convert.service';
-import { ConvertDto } from './dtos';
-import { DomainError } from './errors';
+import { ConverterController } from '../application/converter.controller';
+import { ConvertService } from '../application/services/convert.service';
+import { ConvertDto } from '../application/request/dtos';
+import { DomainError } from '../domain/errors';
 
 describe('ConverterController', () => {
   let converterController: ConverterController;

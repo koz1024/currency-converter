@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { RateService } from './rate.service';
-import { CurrencyService } from '../currency/currency.service';
+import { CurrencyService } from '../../../currency/currency.service';
 import { RateUpdaterService } from './rate.updater.service';
-import { CurrencyNotFoundError } from './errors';
-import { ConvertResultInterface } from './interfaces';
+import { CurrencyNotFoundError } from '../../domain/errors';
+import { ConvertResultInterface } from '../request/interfaces';
 
 @Injectable()
 export class ConvertService {

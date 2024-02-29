@@ -2,7 +2,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
-import { RateCacheInterface } from './interfaces';
+import { RateCacheInterface } from '../../interfaces';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()

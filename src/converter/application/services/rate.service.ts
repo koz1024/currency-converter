@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
-import { Currency, CurrencyService } from '../currency/currency.service';
-import { DoubleConversionDisabledError, CurrencyNotFoundError, ExternalCurrencyNotFoundError } from './errors';
-import { RateCacheInterface, RateInterface } from './interfaces';
+import { Currency, CurrencyService } from '../../../currency/currency.service';
+import { DoubleConversionDisabledError, CurrencyNotFoundError, ExternalCurrencyNotFoundError } from '../../domain/errors';
+import { RateCacheInterface, RateInterface } from '../../interfaces';
 
 @Injectable()
 export class RateService {

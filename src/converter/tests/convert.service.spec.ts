@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConvertService } from './convert.service';
-import { RateService } from './rate.service';
-import { CurrencyService } from '../currency/currency.service';
-import { RateUpdaterService } from './rate.updater.service';
+import { ConvertService } from '../application/services/convert.service';
+import { RateService } from '../application/services/rate.service';
+import { CurrencyService } from '../../currency/currency.service';
+import { RateUpdaterService } from '../application/services/rate.updater.service';
 
 describe('ConvertService', () => {
   let service: ConvertService;

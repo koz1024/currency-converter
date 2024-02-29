@@ -1,6 +1,6 @@
-import { RateService } from './rate.service';
+import { RateService } from '../application/services/rate.service';
 import { Test, TestingModule } from '@nestjs/testing';
-import { CurrencyService } from '../currency/currency.service';
+import { CurrencyService } from '../../currency/currency.service';
 import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
 
 describe('RateService', () => {
