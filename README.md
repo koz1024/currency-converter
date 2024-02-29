@@ -92,10 +92,10 @@ So, my assumption is that cross rate is not a double conversion rate, and it's s
 
 ## Room for improvements
 
-- **3d party API fallback**. We depend on the Monobank API. If it's down, we'll have only old rates. We can add a fallback to another API to prevent such situations. Also, *cold start:* if the MonoAPI is down, and we have no rates in Redis, the app will not work.
-- **Better file structure.** Since it's a tiny application, I didn't want to overcomplicate the file structure. Currently, inside each module's folder, it's a just heap of files. But in a real-world application, it's better to have a more organized file structure to make the code more maintainable.
-- **Unit Tests**. In order to save time, I've done manual testing only. The real application should be covered with unit tests.
-- **Throttling.** Shouldn't we limit the number of requests to our app in order to prevent abuse?
-- **Better UI**. Since the UI is not part of the requirements, I didn't spend much time on it. But it's definitely not production-ready.
-- [Minor] some eslint & prettier rules should be added.
-- [depends on the infrastructure], but I'd move from Nest's "cron" to something like Lambdas or at least to a real cron job.
+- [ ] **3d party API fallback**. We depend on the Monobank API. If it's down, we'll have only old rates. We can add a fallback to another API to prevent such situations. Also, *cold start:* if the MonoAPI is down, and we have no rates in Redis, the app will not work.
+- [ ] **Better file structure.** Since it's a tiny application, I didn't want to overcomplicate the file structure. Currently, inside each module's folder, it's a just heap of files. But in a real-world application, it's better to have a more organized file structure to make the code more maintainable.
+- [X] **Unit Tests**. In order to save time, I've done manual testing only. The real application should be covered with unit tests.
+- [ ] **Throttling.** Shouldn't we limit the number of requests to our app in order to prevent abuse?
+- [ ] **Better UI**. Since the UI is not part of the requirements, I didn't spend much time on it. But it's definitely not production-ready.
+- [ ] [Minor] some eslint & prettier rules should be added.
+- [ ] [depends on the infrastructure], but I'd move from Nest's "cron" to something like Lambdas or at least to a real cron job.

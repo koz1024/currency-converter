@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
-import { RateUpdaterService } from './rate.updater.service';
 import { Currency, CurrencyService } from '../currency/currency.service';
 import { DoubleConversionDisabledError, CurrencyNotFoundError, ExternalCurrencyNotFoundError } from './errors';
 import { RateCacheInterface, RateInterface } from './interfaces';
@@ -10,7 +9,6 @@ import { RateCacheInterface, RateInterface } from './interfaces';
 export class RateService {
   constructor(
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
-    private updater: RateUpdaterService,
     private currencySvc: CurrencyService,
   ) {}
 
@@ -37,7 +35,7 @@ export class RateService {
       : `${sourceCurrency.numCode}`;
     const rateCached = await this.cacheManager.get<RateCacheInterface>(rateCacheKey);
     if (!rateCached) {
-      throw new CurrencyNotFoundError();
+      throw new ExternalCurrencyNotFoundError();
     }
     return this.resolveRate(rateCached, this.currencySvc.isBaseCurrency(sourceCurrency) ? 'sell' : 'buy');
   }
