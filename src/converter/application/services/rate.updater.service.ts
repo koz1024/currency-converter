@@ -7,7 +7,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class RateUpdaterService {
-  private updateInterval = 60 * 24; // 24 hours by default
+  private updateInterval = 24 * 60 * 60 * 1000; // 24 hours by default
   private readonly URL = 'https://api.monobank.ua/bank/currency';
   private readonly LAST_UPDATE_DATE_KEY = 'lastUpdateDate';
   private readonly logger = new Logger(RateUpdaterService.name);
@@ -17,7 +17,11 @@ export class RateUpdaterService {
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
     private configService: ConfigService,
   ) {
-    this.updateInterval = (this.configService.get<number>('UPDATE_INTERVAL') ?? this.updateInterval) * 60 * 1000;
+    const updateInterval = this.configService.get<number>('UPDATE_INTERVAL');
+    if (updateInterval) {
+      //update interval in config is in minutes, convert to ms
+      this.updateInterval = updateInterval * 60 * 1000;
+    }
   }
 
   @Cron('0 * * * * *')
